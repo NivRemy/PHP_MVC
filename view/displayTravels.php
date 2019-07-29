@@ -10,7 +10,7 @@ foreach($travels as $travel){
 				<?= utf8_encode($travel['title']);?>
 			</h2>
 		<?php if(!empty($travel['img'])){
-			echo '<img src="' . $travel['img'] . '">';
+			echo '<img src="img/' . $travel['img'] . '">';
 		}
 		?>
 			<p><?= utf8_encode($travel['content']); ?></p>
