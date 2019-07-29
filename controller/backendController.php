@@ -14,3 +14,9 @@ function login(){
 		echo 'pas de user';
 	}
 }
+
+function displayTravelForm(){
+	require_once 'view/displayVoyageForm.php';
+}
+
+function 

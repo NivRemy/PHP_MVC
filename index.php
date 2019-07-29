@@ -4,6 +4,8 @@ require_once 'controller/frontendController.php';
 if(isset($_GET['sk'])){
 	session_destroy();
 	header('Location: index.php');
+}elseif(isset($_POST['title']) && isset($_POST['content'])){
+	addTravel();
 }elseif(isset($_POST['mail']) && isset($_POST['password'])){
 	require_once 'controller/backendController.php';
 	login();

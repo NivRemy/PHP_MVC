@@ -32,7 +32,7 @@
 	      if(isset($_SESSION['mail'])){
 	      	?>
 			<li class="nav-item">
-	        	<a class="nav-link" href="voyageform.php">Ajouter voyage</a>
+	        	<a class="nav-link" href="index.php?page=voyageForm">Ajouter voyage</a>
 	      	</li>
 	      	<li class="nav-item">
 	        	<a href="index.php?sk=1" class="btn btn-danger" name="logout">Déconnexion</a>

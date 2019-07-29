@@ -19,6 +19,15 @@ function displayPage(){
 		case 'loginForm':
 			displayLogin();
 			break;
+
+		case 'voyageForm':
+			if(isset($_SESSION['mail'])){
+				require_once 'backendController.php';
+				displayTravelForm();
+			} else {
+				displayLogin();
+			}
+			break;
 		
 		default:
 			displayTravels();
