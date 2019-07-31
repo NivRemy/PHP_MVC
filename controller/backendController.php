@@ -20,11 +20,11 @@ function displayTravelForm(){
 }
 
 function addTravel(){
-	if(isset($_FILES['img'])){
+	if(isset($_FILES['img']) && !empty($_FILES['img']['name'])){
 		$img = $_FILES['img']['name'];
 		$ext = pathinfo($_FILES['img']['name'])['extension'];
 		if(in_array($ext, ['png','jpg','jpeg'])){
-			move_uploaded_file( $_FILES['img']['tmp_name'], $img);
+			move_uploaded_file( $_FILES['img']['tmp_name'], 'img/' . $img);
 		}
 	} else{
 		$img = null;

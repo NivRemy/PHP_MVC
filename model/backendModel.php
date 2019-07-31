@@ -21,7 +21,7 @@ function setArticle($topic){
 	$sql = 'INSERT INTO topics (title,content,img) VALUES (:title,:content,:img)';
 
 	$request = $db->prepare($sql);
-	
+
 	$request->execute([
 		':title' => htmlentities(strip_tags($topic['title'])),
 		':content' => htmlentities(strip_tags($topic['content'])),
