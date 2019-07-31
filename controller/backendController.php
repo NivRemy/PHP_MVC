@@ -37,3 +37,8 @@ function addTravel(){
 	setArticle($topic);
 	displayTravels('Insertion ok');
 }
+
+function removeTravel(){
+	deleteTravel($_GET['delete']);
+	displayTravels('Travel removed');
+}

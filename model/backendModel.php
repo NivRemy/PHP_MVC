@@ -28,3 +28,15 @@ function setArticle($topic){
 		':img' => htmlentities(strip_tags($topic['img'])),
 	]);
 }
+
+function deleteTravel($id){
+	$db = connect();
+
+	$sql = 'DELETE FROM topics WHERE id = :id';
+
+	$request = $db->prepare($sql);
+
+	$request->execute([
+		':id' => htmlentities(strip_tags($id))
+	]);
+}

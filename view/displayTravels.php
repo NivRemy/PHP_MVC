@@ -16,6 +16,13 @@ foreach($travels as $travel){
 		}
 		?>
 			<p><?= utf8_encode($travel['content']); ?></p>
+			<?php
+			if(isset($_SESSION['mail'])){
+				?>
+				<a href=<?= '"index.php?delete=' . $travel['id'] . '"'; ?>><button class="btn btn-danger">Supprimer</button></a>
+				<?php
+			}
+			?>
 		</div>
 	</div>
 	<?php
