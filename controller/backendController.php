@@ -19,4 +19,21 @@ function displayTravelForm(){
 	require_once 'view/displayVoyageForm.php';
 }
 
-function 
+function addTravel(){
+	if(isset($_FILES['img'])){
+		$img = $_FILES['img']['name'];
+		$ext = pathinfo($_FILES['img']['name'])['extension'];
+		if(in_array($ext, ['png','jpg','jpeg'])){
+			move_uploaded_file( $_FILES['img']['tmp_name'], $img);
+		}
+	} else{
+		$img = null;
+	}
+	$topic = [
+		'title'=>$_POST['title'],
+		'content'=>$_POST['content'],
+		'img'=>$img
+	];
+	setArticle($topic);
+	displayTravels('Insertion ok');
+}

@@ -1,7 +1,9 @@
 <?php
 ob_start();
 
-
+if(!is_null($message)){
+	echo '<p>' . $message . '</p>';
+}
 foreach($travels as $travel){
 	?>
 	<div class="container">

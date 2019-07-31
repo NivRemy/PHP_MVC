@@ -14,3 +14,17 @@ function getUser($mail){
 
 	return $request->fetch(PDO::FETCH_ASSOC);
 }
+
+function setArticle($topic){
+	$db = connect();
+
+	$sql = 'INSERT INTO topics (title,content,img) VALUES (:title,:content,:img)';
+
+	$request = $db->prepare($sql);
+	
+	$request->execute([
+		':title' => htmlentities(strip_tags($topic['title'])),
+		':content' => htmlentities(strip_tags($topic['content'])),
+		':img' => htmlentities(strip_tags($topic['img'])),
+	]);
+}

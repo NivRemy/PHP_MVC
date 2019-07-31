@@ -4,7 +4,7 @@ ob_start();
 ?>
 	<div class="container">
 		<div class="jumbotron">
-			<form action="./newvoyage.php" method="post" enctype="multipart/form-data" class="form-horizontal">
+			<form action="index.php" method="post" enctype="multipart/form-data" class="form-horizontal">
 				<div class="form-group">
 					<label class="control-label col-sm-2" for="title">Titre</label>
 					<div class="col-sm-10">

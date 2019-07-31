@@ -1,7 +1,7 @@
 <?php
 require_once 'model/frontendModel.php';
 
-function displayTravels(){
+function displayTravels($message=null){
 	$travels = getTravels();
 	require 'view/displayTravels.php';
 }
