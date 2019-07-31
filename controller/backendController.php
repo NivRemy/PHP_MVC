@@ -1,5 +1,7 @@
 <?php
 require_once 'model/backendModel.php';
+require_once 'model/frontendModel.php';
+
 
 function login(){
 	$user = getUser($_POST['mail']);
@@ -21,8 +23,10 @@ function displayTravelForm(){
 
 function addTravel(){
 	if(isset($_FILES['img']) && !empty($_FILES['img']['name'])){
-		$img = $_FILES['img']['name'];
-		$ext = pathinfo($_FILES['img']['name'])['extension'];
+		
+		$path = pathinfo($_FILES['img']['name']);
+		$ext = $path['extension'];
+		$img = $path['filename'] . uniqid() . "." . $ext;
 		if(in_array($ext, ['png','jpg','jpeg'])){
 			move_uploaded_file( $_FILES['img']['tmp_name'], 'img/' . $img);
 		}
@@ -39,6 +43,8 @@ function addTravel(){
 }
 
 function removeTravel(){
+	$travel = getTravel($_GET['delete']);
+	unlink('img/' . $travel['img']);
 	deleteTravel($_GET['delete']);
 	displayTravels('Travel removed');
 }

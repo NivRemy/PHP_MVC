@@ -2,7 +2,7 @@
 ob_start();
 
 if(!is_null($message)){
-	echo '<p>' . $message . '</p>';
+	echo '<div class="container"><div class = "alert alert-success" role="alert" >' . $message . '</div></div>';
 }
 foreach($travels as $travel){
 	?>
@@ -12,14 +12,14 @@ foreach($travels as $travel){
 				<?= utf8_encode($travel['title']);?>
 			</h2>
 		<?php if(!empty($travel['img'])){
-			echo '<img src="img/' . $travel['img'] . '">';
+			echo '<div class="img-container"><img class="img-fluid topic-img" src="img/' . $travel['img'] . '"></div>';
 		}
 		?>
-			<p><?= utf8_encode($travel['content']); ?></p>
+			<div class="topic-content"><p><?= utf8_encode($travel['content']); ?></p></div>
 			<?php
 			if(isset($_SESSION['mail'])){
 				?>
-				<a href=<?= '"index.php?delete=' . $travel['id'] . '"'; ?>><button class="btn btn-danger">Supprimer</button></a>
+				<a class="d-flex justify-content-end" href=<?= '"index.php?delete=' . $travel['id'] . '"'; ?>><button class="btn btn-danger">Supprimer</button></a>
 				<?php
 			}
 			?>
